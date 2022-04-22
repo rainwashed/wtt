@@ -1,8 +1,10 @@
-const fs = require("fs");
-const colors = require("colors");
-const path = require("path");
-const os = require("os");
+const fs            = require("fs");
+const path          = require("path");
+const os            = require("os");
+const jsonc         = require("jsonc");
+const colors        = require("colors");
 const infoOutModule = require("./helpers/info.out.js");
+const utilModule    = require("./helpers/utils.js");
 
 if (os.platform() !== "win32") {
     console.error("This program does not work on %s".white.bgRed, systemType);
@@ -46,7 +48,18 @@ if (commandLedger.rootCommand === "") {
     infoOutModule.defaultHelp();
     process.exit(1);
 } else if (commandLedger.rootCommand === "help") {
-    infoOutModule.help(commandLedger.args[0].value);
+    if (commandLedger.args[0] !== undefined && ["list", "install", "backup", "upload", "download", "clean", "about", "credits", "help"].includes(commandLedger.args[0].value)) {
+        infoOutModule.help(commandLedger.args[0].value);
+    }
     process.exit(1);
 }
 
+commandLedger.flags.forEach((flag) => {
+    if (flag.value == "no-color") {
+        colors.disable();        
+    }
+})
+
+console.log(commandLedger);
+
+utilModule.list(commandLedger);

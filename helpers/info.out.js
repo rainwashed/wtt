@@ -5,9 +5,9 @@ const commandReference = {
 -------------------
 
 ${"list".bold}
-List theme schemes
+List theme schemes or details about a specific theme
     
-Arguments: None
+Arguments: Theme name or index number
 Valid Parameters: None
 Valid Flags: None
     
