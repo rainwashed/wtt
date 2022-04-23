@@ -79,7 +79,7 @@ Valid Flags: None
 -------------------
 
 ${"clean".bold}
-Reset the Windows Terminal configuration file to the original (the default backup when first running wtt)
+Reset the Windows Terminal configuration file to the original (the default backup when first running wtt backup)
 
 Arguments: None
 Valid Parameters: None
