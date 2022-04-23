@@ -11,15 +11,16 @@ if (os.platform() !== "win32") {
     process.exit(1);
 }
 
-const systemUsername = os.userInfo().username;
-const commandArgs = process.argv.slice(2);
-const windowsTerminalRegex = /Microsoft.WindowsTerminal_.{0,}/; // Regex for the Windows Terminal folder
-
-let windowsTerminalFolder = path.join("C:", "Users", systemUsername, "AppData", "Local", "Packages");
+const systemUsername          = os.userInfo().username;
+const commandArgs             = process.argv.slice(2);
+const windowsTerminalRegex    = /Microsoft.WindowsTerminal_.{0,}/; // Regex for the Windows Terminal folder
+global.windowsTerminalFolder  = path.join("C:", "Users", systemUsername, "AppData", "Local", "Packages");
 
 fs.readdirSync(windowsTerminalFolder).forEach((f) => {
-    if (windowsTerminalRegex.test(f)) return windowsTerminalFolder = path.join("C:", "Users", systemUsername, "AppData", "Local", "Packages", f);
+    if (windowsTerminalRegex.test(f)) return global.windowsTerminalFolder = path.join("C:", "Users", systemUsername, "AppData", "Local", "Packages", f);
 });
+
+global.windowsTerminalConfig  = path.join(global.windowsTerminalFolder, "LocalState", "settings.json");
 
 let commandLedger = {
     flags: [], // starts with --flag
@@ -29,7 +30,7 @@ let commandLedger = {
 };
 
 if (fs.existsSync(path.join("C:", "Users", systemUsername, "Documents", "wtt", "settings.json")) === false) {
-    fs.cpSync(path.join(windowsTerminalFolder, "LocalState", "settings.json"), path.join("C:", "Users", systemUsername, "Documents", "wtt", "settings.json"));
+    fs.cpSync(global.windowsTerminalConfig, path.join("C:", "Users", systemUsername, "Documents", "wtt", "settings.json"));
     console.log("Saved failsafe backup!".yellow);
 }
 
@@ -64,7 +65,7 @@ commandLedger.flags.forEach((flag) => {
     if (flag.value == "no-color") {
         colors.disable();        
     }
-})
+});
 
 console.log(commandLedger);
 

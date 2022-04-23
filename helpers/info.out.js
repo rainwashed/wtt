@@ -1,4 +1,7 @@
 const systemUsername = require("os").userInfo().username;
+const globalVars = require("./global.var.js");
+
+if (String.prototype.red === undefined) require("colors"); // Failsafe
 
 const commandReference = {
     "list": `
@@ -22,7 +25,7 @@ Install a theme schema
 
 Arguments: Theme name or index number
 Valid Parameters: None
-Valid Flags: --nonInteractive
+Valid Flags: None
 
 For theme names that contain a space, replace the space with a +
 (ex: 3024 Day -> 3024+Day)
@@ -167,7 +170,11 @@ Valid Flags: --no-color
 
 -------------------
 
-Made with ❤️ and 🕑
+Made with ❤️ and 🕑 from Michigan / ${globalVars.projectVersion.yellow}
+
+-------DEBUG-------
+
+Windows Terminal folder located: ${global.windowsTerminalFolder}
     `);
 }
 

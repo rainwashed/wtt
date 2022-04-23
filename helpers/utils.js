@@ -5,17 +5,26 @@ const cli   = {};
 
 const themeConfigFile = jsonc.parse(fs.readFileSync(path.join(__dirname, "..", "themes.json")).toString());
 
+/**
+ * Search for a theme based on a theme id or theme name
+ * @param {number|string} themeIdentifier 
+ * @returns Theme element
+ */
+// TODO: Fix space-including titles
 function search(themeIdentifier) {
+    let e;
     if (Number.isInteger(parseInt(themeIdentifier))) return themeConfigFile[parseInt(themeIdentifier)];
+
     themeIdentifier = themeIdentifier.split("+").join(" ");
     themeConfigFile.forEach((elem) => {
-        if (elem["name"] === themeIdentifier) return elem;
+        if (elem["name"] === themeIdentifier) return e = elem;
     });
-    return -1;
+
+    return e;
 }
 
 function list(commandLedger) {
-    const themeIdentifier = commandLedger?.args[0]?.value.split("+").join(" ");
+    const themeIdentifier = commandLedger?.args[0]?.value?.split("+").join(" ");
 
     if (themeIdentifier === undefined) {
         themeConfigFile.forEach((value, index) => {
@@ -54,12 +63,32 @@ Selection-: ${value["selectionBackground"]}
 cli["list"] = list;
 
 function install(commandLedger) {
-    const themeIdentifier = commandLedger?.args[0]?.value.split("+").join(" ");
+    const commandStart = Date.now();
+    const themeIdentifier = commandLedger?.args[0]?.value?.split("+").join(" ");
     if (themeIdentifier === undefined) process.exit(1);
-    console.log(themeIdentifier);
     const themeData = search(themeIdentifier);
+    const windowsTerminalConfigFile = jsonc.parse(fs.readFileSync(global.windowsTerminalConfig).toString());
 
-    console.log(themeData);
+    if (themeData === undefined || themeData === {}) {
+        console.log(`${"themeData".bold} returned invalid.`.red);
+        process.exit(1);
+    }
+
+    console.log(`Installing ${themeData["name"].rainbow}`);
+
+    for (const scheme of windowsTerminalConfigFile["schemes"]) {
+        if (scheme["name"] === themeData["name"]) {
+            console.log(`${scheme["name"].rainbow} is already installed.`);
+            process.exit(1);
+        };
+    }
+
+    windowsTerminalConfigFile["schemes"].push(themeData);
+
+    fs.writeFileSync(global.windowsTerminalConfig, jsonc.stringify(windowsTerminalConfigFile));
+
+    console.log(`Installed  ${themeData["name"].rainbow} in ${(Date.now() - commandStart)}ms.`);
+    process.exit(0);
 }
 
 cli["install"] = install;
