@@ -2,7 +2,7 @@ const fs        = require("fs");
 const jsonc     = require("jsonc");
 const path      = require("path");
 const readline  = require("readline-sync");
-const ghapi     = require("github-api");
+const github    = require("octonode");
 const cli       = {};
 
 const themeConfigFile   = jsonc.parse(fs.readFileSync(path.join(__dirname, "..", "themes.json")).toString());
@@ -105,23 +105,21 @@ function backup() {
 cli["backup"] = backup;
 
 function upload() {
-    const username = readline.question("What is your GitHub username? > ".blue);
-    const password = readline.question("What is your GitHub password? > ".blue, {
-        hideEchoBack: true,
-    });
-
-    const confirmation = readline.keyInYN("Are you sure? (y, n) > ".red);
-
-    if (!confirmation) return process.exit(1);
+    // const username = readline.question("What is your GitHub username? > ".blue);
+    // const password = readline.question("What is your GitHub password? > ".blue, {
+    //     hideEchoBack: true,
+    // });
+    // const confirmation = readline.keyInYN("Are you sure you want to continue? (y, n) > ".yellow);
+    // if (!confirmation) return process.exit(1);
 }
 
-cli["upload"] = upload;
+// cli["upload"] = upload;
 
 function download() {
     console.log("Under development!".red.bold);
 }
 
-cli["download"] = download;
+// cli["download"] = download;
 
 function clean() {
     fs.cpSync(path.join("C:", "Users", systemUsername, "Documents", "wtt", "settings.json"), global.windowsTerminalConfig);

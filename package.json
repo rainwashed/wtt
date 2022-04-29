@@ -7,8 +7,8 @@
   "license": "GNU GPL v3",
   "dependencies": {
     "colors": "^1.4.0",
-    "github-api": "^3.4.0",
     "jsonc": "^2.0.0",
+    "octonode": "^0.10.2",
     "readline-sync": "^1.4.10"
   },
   "keywords": [

@@ -28,13 +28,18 @@ Run wtt with ``node index.js``
 ## Common Issues
 
 ### **Windows Script Host**
-If during install, you encounter an issue like this:
+If during ``npx wintt``, you encounter an issue like this:
 
 ![](./assets/2022-04-23-22-55-11.png)
 
 there is no need to worry. Just head to ``C:\Users\[system username]\AppData\Roaming\npm\node_modules\wintt``, find the ``index.js`` file, right click it, and press **Open With -> Choose another app -> More -> Look for another item on this PC** and locate the Node.js runtime (typically located at ``C:\Program Files\nodejs\node.exe``)
 
+### **themeData returned invalid.**
+If you encounter an issue that says **themeData returned invalid**:
 
+![](./assets/2022-04-29-19-49-54.png)
+
+just use the corresponding theme index number instead of the theme name (ex 3024 Day -> 0)
 
 ---
 
@@ -51,7 +56,7 @@ The syntax for wtt is \
 ```wtt <main_command> --flags -params=value [...arguments]```
 
 The ``main_command`` must be either ``["list", "install", "backup", "upload", "download", "clean", "about", "credits", "help"]`` \
-``--flags`` are to be assumed as options that go from false ❌ to true ✅ unless otherwise stated \
+``--flags`` are to be assumed as options that go from false ❌ to true ✅ unless otherwise stated
 
 ``Flags`` and ``params`` can be in any order (ie before the main_command or after), but ``arguments`` must follow the ``main_command``
 
@@ -129,4 +134,4 @@ Show documentation on a specific command or show this screen
 ---
 
 ## License
-This project is under the **GNU General Public License v3**
+This project is under the **GNU General Public License v3** and can be viewed in the [LICENSE](./LICENSE) file.
