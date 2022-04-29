@@ -170,7 +170,7 @@ Valid Flags: --no-color
 
 -------------------
 
-Made with ❤️ and 🕑 from Michigan / ${globalVars.projectVersion.yellow}
+Made with ❤️ and 🕑 / ${globalVars.projectVersion.yellow}
 
 -------DEBUG-------
 

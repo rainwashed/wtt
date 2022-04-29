@@ -1,15 +1,22 @@
 {
-  "name": "wtt",
+  "name": "wintt",
   "version": "1.0.0",
-  "description": "",
+  "description": "A cli for Windows Terminal",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "author": "RainWashed <rainwashed@yandex.com> (https://rainwashed.org)",
+  "license": "GNU GPL v3",
   "dependencies": {
     "colors": "^1.4.0",
-    "jsonc": "^2.0.0"
+    "github-api": "^3.4.0",
+    "jsonc": "^2.0.0",
+    "readline-sync": "^1.4.10"
+  },
+  "keywords": [
+    "cli",
+    "windows",
+    "windows_terminal"
+  ],
+  "bin": {
+    "wintt": "index.js"
   }
 }

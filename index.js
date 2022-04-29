@@ -1,7 +1,8 @@
+#! /usr/bin/env node
+
 const fs            = require("fs");
 const path          = require("path");
 const os            = require("os");
-const jsonc         = require("jsonc");
 const colors        = require("colors");
 const infoOutModule = require("./helpers/info.out.js");
 const utilModule    = require("./helpers/utils.js");

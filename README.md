@@ -10,6 +10,9 @@ wtt is a command line interface written in Node.js to add more utility to the Wi
 There are two methods, from the NPM package manager or locally as a standalone folder.
 
 ### NPM
+> ``npm install wintt``
+
+Run wtt with ``npx wintt``
 
 ### Locally
 Clone the repository
@@ -19,6 +22,19 @@ Install the dependencies
 > ``npm install``
 
 Run wtt with ``node index.js``
+
+---
+
+## Common Issues
+
+### **Windows Script Host**
+If during install, you encounter an issue like this:
+
+![](./assets/2022-04-23-22-55-11.png)
+
+there is no need to worry. Just head to ``C:\Users\[system username]\AppData\Roaming\npm\node_modules\wintt``, find the ``index.js`` file, right click it, and press **Open With -> Choose another app -> More -> Look for another item on this PC** and locate the Node.js runtime (typically located at ``C:\Program Files\nodejs\node.exe``)
+
+
 
 ---
 
@@ -111,3 +127,6 @@ Show documentation on a specific command or show this screen
 > Valid Flags: None
 
 ---
+
+## License
+This project is under the **GNU General Public License v3**
