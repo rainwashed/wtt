@@ -17,7 +17,7 @@
 
     <!-- End import, start page -->
 
-    <noscript>This site will not be fully functional without JavaScript enabled!</noscript>
+    <noscript style="width: 100vw; height: 20vh; background-color: #ff4757; display: flex; justify-content: center; align-items: center; font-size: 3vmax;">This site will not be fully functional without JavaScript enabled!</noscript>
 
     <header>
         
@@ -26,8 +26,8 @@
     <div class="fs" order="1">
         <h1><b>Supercharge</b> your Windows Terminal configuration file.</h1>
         <h2>npx wintt <span id="command"></span></h2>
-        <div class="terminal">
-
+        <div class="terminal" id="terminal">
+            <!-- This will be controlled in JavaScript since it needs to be dynamically updated (provide simulated command output) -->
         </div>
     </div>
 
@@ -49,6 +49,9 @@
             </a>
             <a href="https://github.com/rainwashed/wtt/blob/main/README.md">
                 <img src="assets/icon/markdown_icon.svg" alt="markdown_icon.svg" title="Read the README.md">
+            </a>
+            <a href="https://github.com/rainwashed/wtt/blob/main/LICENSE">
+                <img src="assets/icon/gnu-gpl.svg" alt="gnu-gp.svg" title="Read the LICENSE file">
             </a>
         </div>
     </footer>
