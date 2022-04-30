@@ -5,19 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wtt</title>
-    <link rel="stylesheet/less" type="text/css" href="styles/root.less">
-    <link rel="stylesheet/less" type="text/css" href="styles/index.less">
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="shortcut icon" href="./public/wtt.ico" type="image/x-icon">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/less@4"></script> -->
 </head>
 <body>
+    <script src="modules/anime.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js" type="text/javscript"></script>
     <script src="javascript/utils.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
-    <header class="fs">
-        <h1>Supercharge your Windows Terminal configuration file.</h1>
+    <script src="javascript/global.var.js" type="text/javascript"></script>
+
+    <!-- End import, start page -->
+
+    <noscript>This site will not be fully functional without JavaScript enabled!</noscript>
+
+    <header>
+        
+    </header>
+
+    <div class="fs" order="1">
+        <h1><b>Supercharge</b> your Windows Terminal configuration file.</h1>
         <h2>npx wintt <span id="command"></span></h2>
         <div class="terminal">
 
         </div>
-    </header>
+    </div>
+
+    <div class="fs" order="2">
+        <h3>Abstract</h3>
+        <p></p>
+    </div>
+
+    <footer>
+        <img src="assets/wtt_banner.png" alt="wtt_banner.png" draggable="false">
+        <div class="footer__text">
+            <p>Made with 💗 from <a href="https://github.com/rainwashed">RainWashed</a></p>
+            <p>Current release version: <span id="wtt_version"></span></p>
+            <p>Current site release version: <span id="site_version"></span></p>
+        </div>
+        <div class="footer__icons">
+            <a href="https://github.com/rainwashed/wtt">
+                <img src="assets/icon/github_icon.svg" alt="github_icon.svg" title="View the source code">
+            </a>
+            <a href="https://github.com/rainwashed/wtt/blob/main/README.md">
+                <img src="assets/icon/markdown_icon.svg" alt="markdown_icon.svg" title="Read the README.md">
+            </a>
+        </div>
+    </footer>
+
+    <!-- End page, start scripts -->
+
+    <script src="javascript/runatstart.js" type="text/javascript"></script>
     <script src="javascript/command.js" type="text/javascript"></script>
 </body>
 </html>

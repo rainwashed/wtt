@@ -1,5 +1,8 @@
-const commandSpan = document.getElementById("command");
-const commands = [
+const commandSpan   = document.getElementById("command");
+// const typew         = new Typewriter(commandSpan, {
+//     loop: true,
+// });
+const commands      = [
     "list",
     "install",
     "backup",
@@ -16,7 +19,3 @@ function returnRandomCommand() {
 }
 
 commandSpan.innerText = returnRandomCommand();
-
-(async () => {
-    
-})();

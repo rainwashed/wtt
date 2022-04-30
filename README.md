@@ -1,4 +1,7 @@
-<h1 align="center">wtt</h1>
+<p align="center">
+    <img src="./view/assets/wtt_banner.png" alt="wtt_banner.png">
+</p>
+<h1 align="center"><b>wtt</b></h1>
 <h3 align="center">A cli for Windows Terminal</h3>
 
 ## Abstract
