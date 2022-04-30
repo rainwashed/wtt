@@ -1,6 +1,0 @@
-{
-    "discord.enabled": false,
-    "[html]": {
-        "editor.suggest.insertMode": "replace",
-    }
-}
