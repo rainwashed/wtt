@@ -57,6 +57,48 @@ div.terminal::after {
     content: "This is simulated!"
 }
 
+div.fs[type="info"] {
+    height: 50vh;
+    display: flex;
+}
+
+div.fs[type="info"] {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+div.fs[type="info"] p {
+    width: 50%;
+    height: auto;
+}
+
+div.fs[type="info"] img {
+    margin-right: 2%;
+    width: 45%;
+    height: auto;
+}
+
+h1[cursor="true"] {
+    margin: 0 2%;
+    position: relative;
+}
+
+h1[cursor="true"]::after {
+    width: 2%;
+    height: 150%;
+    left: 105%;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: blink 1s var(--easeOutQuint, cubic-bezier(0.22, 1, 0.36, 1)) infinite;
+    content: "";
+}
+
+h1[cursor="true"]::after:nth-child(2n) {
+    animation-delay: 500ms;
+}
+
 footer {
     width: 100vw;
     height: 10vh;

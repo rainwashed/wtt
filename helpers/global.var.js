@@ -4,4 +4,4 @@ const projectVersion = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "pa
 
 module.exports = {
     projectVersion,
-}
+};
