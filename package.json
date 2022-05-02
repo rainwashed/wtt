@@ -18,5 +18,13 @@
   ],
   "bin": {
     "wintt": "index.js"
+  },
+  "pkg": {
+    "scripts": "helpers/*.js",
+    "assets": [
+      "themes.json"
+    ],
+    "targets": ["node14-win-x64"],
+    "outputPath": "build"
   }
 }
