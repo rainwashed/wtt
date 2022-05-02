@@ -24,9 +24,14 @@ Clone the repository
 > ``git clone https://github.com/rainwashed/wtt.git`` 
 
 Install the dependencies
-> ``npm install``
+> ``npm install wintt``
 
 Run wtt with ``node index.js``
+
+### Binary
+Download the binary from [here](https://github.com/rainwashed/wtt/releases/tag/build)
+
+Run wtt with ``.\wintt.exe``
 
 ---
 
