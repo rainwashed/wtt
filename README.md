@@ -4,4 +4,9 @@
 <h1 align="center"><b>wtt</b></h1>
 <h3 align="center">A cli for Windows Terminal</h3>
 
-This is the wtt binary to use if you do not want to install with NPM or the like. 
+This is the Windows Terminal Terminal binary.
+
+To compile the binary, run ``node build.js`` and the build process should automatically happen (which includes checksums)
+
+### Bugs
+- Checksum is different every time (maybe because of Node execution) ¯\\\_(ツ)_/¯
