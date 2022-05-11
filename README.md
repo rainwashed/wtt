@@ -9,4 +9,4 @@ This is the Windows Terminal Terminal binary.
 To compile the binary, run ``node build.js`` and the build process should automatically happen (which includes checksums)
 
 ### Bugs
-- Checksum is different every time (maybe because of Node execution) ¯\\\_(ツ)_/¯
+- Checksum is different every time (most likely due to **pkg** adding metadata during compilation changing the checksum)

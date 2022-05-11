@@ -28,7 +28,7 @@ function logError(subject, errorMessage) {
 let npmLsOutput;
 
 try {
-    npmLsOutput = execSync("npm ls").toString();
+    npmLsOutput = execSync("npm ls -g").toString();
 } catch (e) {
     logError("npmLsOutput", e);
     process.exit(1);
@@ -37,13 +37,13 @@ try {
 if (!npmLsOutput.includes("pkg@")) {
     console.log("Unable to find pkg@ in the npm ls output. Attempting to install...".yellow);
 
-    const [ errorOccurred, stdout ] = attemptExecution("npm i pkg");
+    const [ errorOccurred, stdout ] = attemptExecution("npm i -g pkg");
 
     if (errorOccurred) {
-        logError("npm i pkg", stdout);
+        logError("npm i -g pkg", stdout);
         process.exit(1);
     } else {
-        console.log(`Installed ${"pkg".bold}, continuing execution...`.green);
+        console.log(`Installed ${"pkg".bold} globally, continuing execution...`.green);
     }
 } else {
     console.log(`Found ${"pkg".bold}, continuing execution...`.green);
@@ -67,11 +67,7 @@ console.log("Attempting to generate a checksum...".yellow);
 
 const checkSumStart = Date.now();
 
-try {
-    require("child_process").spawnSync("powershell.exe", [`${path.join(__dirname, "generateChecksum.ps1")}`]);
-} catch (e) {
-    logError("powershell.exe generateChecksum.ps1", e);
-}
+attemptExecution("powershell.exe .\\generateChecksum.ps1");
 
 console.log(`Took ${Date.now() - checkSumStart}ms to generate a checksum.`.blue);
 console.log(`Finished the build process in ${Math.round((Date.now() - executionStart) / 1000)}s!`.rainbow);
@@ -92,5 +88,5 @@ console.log(
 ⡀⣌⠄⠻⣧⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⢿⣿⣿⣿⣿⣿⡟⠘⠄⠄
 ⣷⡘⣷⡀⠘⣿⣿⣿⣿⣿⣿⣿⣿⡋⢀⣠⣤⣶⣶⣾⡆⣿⣿⣿⠟⠁⠄⠄⠄⠄
 ⣿⣷⡘⣿⡀⢻⣿⣿⣿⣿⣿⣿⣿⣧⠸⣿⣿⣿⣿⣿⣷⡿⠟⠉⠄⠄⠄⠄⡄⢀
-⣿⣿⣷⡈⢷⡀⠙⠛⠻⠿⠿⠿⠿⠿⠷⠾⠿⠟⣛⣋⣥⣶⣄⠄⢀⣄⠹⣦⢹⣿`.rainbow
+⣿⣿⣷⡈⢷⡀⠙⠛⠻⠿⠿⠿⠿⠿⠷⠾⠿⠟⣛⣋⣥⣶⣄⠄⢀⣄⠹⣦⢹⣿`.rainbow.bold
 );
