@@ -56,7 +56,7 @@ const buildTimeStart = Date.now();
 let [ errorOccurred, stdout] = attemptExecution("pkg .");
 
 if (errorOccurred) {
-    logError("pkg .", stdout);
+    logError("pkg --no-bytecode .", stdout);
     process.exit(1);
 }
 
