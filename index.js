@@ -70,4 +70,9 @@ commandLedger.flags.forEach((flag) => {
 
 console.log(commandLedger);
 
+if (["list", "install", "backup", "upload", "download", "clean", "about", "credits", "help"].includes(commandLedger.rootCommand.toLowerCase()) === false) {
+    console.log("Invalid command!".bold.red);
+    process.exit(1);
+}
+
 utilModule[commandLedger.rootCommand.toLowerCase()](commandLedger);
