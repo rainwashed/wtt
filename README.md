@@ -4,7 +4,7 @@
 <h1 align="center"><b>wtt</b></h1>
 <h3 align="center">A cli for Windows Terminal</h3>
 
-<h5>Notice ‼ This CLI isn't fully completed yet and some features are missing. The project is functional for the main purpose (installing themes)</h5>
+<h5>Notice ‼ This CLI isn't fully completed yet and some features are missing. The project is functional for the main purpose (installing themes). I am lazy so please PR!</h5>
 
 ## Abstract
 wtt is a command line interface written in Node.js to add more utility to the Windows Terminal application such as *theme installing*, *configuration file backups*, and more to come in the future.
